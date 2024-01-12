@@ -14,7 +14,8 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            //
+            //datos flasos para campo nombre en texto
+            'name'=>$this->faker->word
         ];
     }
 }

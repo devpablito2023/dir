@@ -15,7 +15,19 @@ class CreateCoursesTable extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
+            // nescesitamos saber que usuario ha creado este curso entonces llamamos a la funcion 
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('category_id');
+            $table->string('name');
+            $table->string('slug');
+            $table->string('image');
+            $table->text('description');
             $table->timestamps();
+            // necesitamos crear o validar las realciones con usuarios y categoria
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('category_id')->references('id')->on('categories');
+
+
         });
     }
 
